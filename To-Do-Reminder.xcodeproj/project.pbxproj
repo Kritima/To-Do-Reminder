@@ -13,6 +13,7 @@
 		CA0BDF3324A263D60074C685 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0BDF3124A263D60074C685 /* Main.storyboard */; };
 		CA0BDF3524A263D90074C685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA0BDF3424A263D90074C685 /* Assets.xcassets */; };
 		CA0BDF3824A263D90074C685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */; };
+		CA0BDF4024A26DC90074C685 /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0BDF3F24A26DC90074C685 /* NewListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CA0BDF3424A263D90074C685 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA0BDF3724A263D90074C685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA0BDF3924A263D90074C685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA0BDF3F24A26DC90074C685 /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				CA0BDF3424A263D90074C685 /* Assets.xcassets */,
 				CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */,
 				CA0BDF3924A263D90074C685 /* Info.plist */,
+				CA0BDF3F24A26DC90074C685 /* NewListViewController.swift */,
 			);
 			path = "To-Do-Reminder";
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				CA0BDF3024A263D60074C685 /* ViewController.swift in Sources */,
 				CA0BDF2C24A263D60074C685 /* AppDelegate.swift in Sources */,
 				CA0BDF2E24A263D60074C685 /* SceneDelegate.swift in Sources */,
+				CA0BDF4024A26DC90074C685 /* NewListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
