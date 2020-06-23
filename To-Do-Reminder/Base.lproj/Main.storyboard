@@ -12,7 +12,7 @@
             <objects>
                 <tableViewController id="B81-L2-4fW" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zdz-7W-Tnc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -46,7 +46,12 @@
                             <outlet property="delegate" destination="B81-L2-4fW" id="S2B-6k-d81"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xlX-HQ-fBh"/>
+                        <barButtonItem title="Item" image="list.bullet.below.rectangle" catalog="system" id="OWE-Ii-Gmc"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="My Lists" id="cE8-pn-AtF"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFc-Gh-OQE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,4 +107,7 @@
             <point key="canvasLocation" x="-488.40579710144931" y="145.98214285714286"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list.bullet.below.rectangle" catalog="system" width="128" height="112"/>
+    </resources>
 </document>
