@@ -35,4 +35,12 @@ extension Date {
             }
         }
         
-        
+        func isPast(today currentDate: Date) -> Bool {
+                if self > currentDate {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            
+            
