@@ -69,7 +69,6 @@
 				CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */,
 				CA0BDF3924A263D90074C685 /* Info.plist */,
 				CA0BDF3F24A26DC90074C685 /* NewListViewController.swift */,
-				CAF81F7424A67C7F000E9C36 /* Date+Extension.swift */,
 			);
 			path = "To-Do-Reminder";
 			sourceTree = "<group>";
@@ -77,6 +76,7 @@
 		CAF81F7624A67C84000E9C36 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CAF81F7424A67C7F000E9C36 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
