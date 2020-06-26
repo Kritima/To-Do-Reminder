@@ -27,4 +27,12 @@ extension Date {
         return components
     }
     
-    
+    func isEqual(currentDate: Date) -> Bool {
+            if self.dateComponents().day == currentDate.dateComponents().day {
+                return true
+            } else {
+                return false
+            }
+        }
+        
+        
