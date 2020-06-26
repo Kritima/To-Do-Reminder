@@ -52,4 +52,28 @@ class CategoryTableViewController: UITableViewController {
             }
         }
 
-       
+       // MARK: - Table view data source
+
+              override func numberOfSections(in tableView: UITableView) -> Int {
+                  // #warning Incomplete implementation, return the number of sections
+                  return 1
+              }
+
+              override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+                  // #warning Incomplete implementation, return the number of rows
+                  return categories.count
+              }
+
+              
+              override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                  let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath)
+                  cell.textLabel?.text = categories[indexPath.row].category
+                  cell.textLabel?.textColor = .lightGray
+                  cell.detailTextLabel?.textColor = .lightGray
+                //  cell.detailTextLabel?.text = "\(categories[indexPath.row].notes?.count ?? 0)"
+                  cell.imageView?.image = UIImage(systemName: "folder")
+                  cell.selectionStyle = .none
+                  return cell
+              }
+
+              
