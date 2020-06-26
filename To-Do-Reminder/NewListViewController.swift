@@ -9,11 +9,22 @@
 import UIKit
 
 class NewListViewController: UIViewController {
-
+    @IBOutlet weak var doneBarButton: UIButton!
+    @IBOutlet weak var cancelBarButton: UIButton!
+    @IBOutlet weak var newListTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        doneBarButton.isEnabled = false
+        textFieldDidEndEditing(textField: newListTextField)
     }
 
+    func textFieldDidEndEditing(textField: UITextField) {
+        if (newListTextField.text?.isEmpty != nil)
+        {
+            self.doneBarButton.isEnabled = true
+        }
+    }
 
 }

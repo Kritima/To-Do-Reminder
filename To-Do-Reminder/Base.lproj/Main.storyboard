@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="268" y="146"/>
         </scene>
-        <!--New-->
+        <!--New List View Controller-->
         <scene sceneID="unQ-C5-byj">
             <objects>
-                <viewController id="vUH-Y3-Hnn" customClass="new" sceneMemberID="viewController">
+                <viewController id="vUH-Y3-Hnn" customClass="NewListViewController" customModule="To_Do_Reminder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oj5-XD-008">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,6 +115,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qsk-6k-MXJ"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelBarButton" destination="0BL-b5-BSP" id="Duk-Qu-igJ"/>
+                        <outlet property="doneBarButton" destination="3sv-FW-zfA" id="FHE-B8-EaB"/>
+                        <outlet property="newListTextField" destination="z8Q-cx-XsD" id="D5M-IP-1uf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIn-RU-i3w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,6 +14,7 @@
 		CA0BDF3524A263D90074C685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA0BDF3424A263D90074C685 /* Assets.xcassets */; };
 		CA0BDF3824A263D90074C685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */; };
 		CA0BDF4024A26DC90074C685 /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0BDF3F24A26DC90074C685 /* NewListViewController.swift */; };
+		CAF81F7524A67C7F000E9C36 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF81F7424A67C7F000E9C36 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CA0BDF3724A263D90074C685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA0BDF3924A263D90074C685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA0BDF3F24A26DC90074C685 /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
+		CAF81F7424A67C7F000E9C36 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		CA0BDF2A24A263D60074C685 /* To-Do-Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				CAF81F7624A67C84000E9C36 /* Extension */,
 				CA0BDF2B24A263D60074C685 /* AppDelegate.swift */,
 				CA0BDF2D24A263D60074C685 /* SceneDelegate.swift */,
 				CA0BDF2F24A263D60074C685 /* ViewController.swift */,
@@ -66,8 +69,16 @@
 				CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */,
 				CA0BDF3924A263D90074C685 /* Info.plist */,
 				CA0BDF3F24A26DC90074C685 /* NewListViewController.swift */,
+				CAF81F7424A67C7F000E9C36 /* Date+Extension.swift */,
 			);
 			path = "To-Do-Reminder";
+			sourceTree = "<group>";
+		};
+		CAF81F7624A67C84000E9C36 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAF81F7524A67C7F000E9C36 /* Date+Extension.swift in Sources */,
 				CA0BDF3024A263D60074C685 /* ViewController.swift in Sources */,
 				CA0BDF2C24A263D60074C685 /* AppDelegate.swift in Sources */,
 				CA0BDF2E24A263D60074C685 /* SceneDelegate.swift in Sources */,
