@@ -3,7 +3,11 @@
     <entity name="Categories" representedClassName="Categories" syncable="YES" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Lists" representedClassName="Lists" syncable="YES" codeGenerationType="class">
+        <attribute name="list" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Categories" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="Lists" positionX="-54" positionY="0" width="128" height="58"/>
     </elements>
 </model>
