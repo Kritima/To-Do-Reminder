@@ -102,7 +102,24 @@ class CategoryTableViewController: UITableViewController {
                       
                       present(alert, animated: true, completion: nil)
                   }
-                  
+    
+func showAlert() {
+                     let alert = UIAlertController(title: "Name Taken", message: "Please choose another name", preferredStyle: .alert)
+                     let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                     okAction.setValue(UIColor.orange, forKey: "titleTextColor")
+                     alert.addAction(okAction)
+                     present(alert, animated: true, completion: nil)
+                 }
+                 
+                 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                     let destination = segue.destination as! NoteTableViewController
+                     if let indexPath = tableView.indexPathForSelectedRow {
+                         destination.selectedFolder = folders[indexPath.row]
+                     }
+                     
+                 }
+             }
+
                  
 
                   
