@@ -76,4 +76,36 @@ class CategoryTableViewController: UITableViewController {
                   return cell
               }
 
-              
+              //MARK: - add category method
+                  @IBAction func addFolder(_ sender: UIBarButtonItem) {
+                      
+                      var textField = UITextField()
+                      let alert = UIAlertController(title: "Add New Folder", message: "", preferredStyle: .alert)
+                      let addAction = UIAlertAction(title: "Add", style: .default) { (action) in
+                          let folderNames = self.categories.map {$0.category}
+                          guard !folderNames.contains(textField.text) else {self.showAlert(); return}
+                          let newFolder = Categories(context: self.context)
+                          newFolder.category = textField.text!
+                          self.categories.append(newFolder)
+                          self.saveFolders()
+                      }
+                      let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                      // change the font color of cancel action
+                      cancelAction.setValue(UIColor.orange, forKey: "titleTextColor")
+                      
+                      alert.addAction(addAction)
+                      alert.addAction(cancelAction)
+                      alert.addTextField { (field) in
+                          textField = field
+                          textField.placeholder = "Folder Name"
+                      }
+                      
+                      present(alert, animated: true, completion: nil)
+                  }
+                  
+                 
+
+                  
+
+
+
