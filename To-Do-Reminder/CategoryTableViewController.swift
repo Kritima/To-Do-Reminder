@@ -14,4 +14,7 @@ class CategoryTableViewController: UITableViewController {
     // create a folder array to populate the table
     var categories = [Categories]()
     
+// create a context
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     
