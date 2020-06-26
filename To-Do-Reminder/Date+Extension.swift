@@ -43,4 +43,31 @@ extension Date {
                 }
             }
             
-            
+            static func from(hour: Int, minutes: Int, year: Int, month: Int, day: Int) -> Date? {
+                    let calendar = Calendar(identifier: .gregorian)
+                    var dateComponents = DateComponents()
+                    dateComponents.hour = hour
+                    dateComponents.minute = minutes
+                    dateComponents.year = year
+                    dateComponents.month = month
+                    dateComponents.day = day
+                    return calendar.date(from: dateComponents) ?? nil
+                }
+                
+                func string(format: String) -> String {
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = format
+                    return formatter.string(from: self)
+                }
+                
+                func dateFormatterString() -> String {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.timeStyle = .short
+                    dateFormatter.dateStyle = .long
+                    return dateFormatter.string(from: self)
+                }
+            }
+
+
+
+
