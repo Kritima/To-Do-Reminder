@@ -17,4 +17,39 @@ class CategoryTableViewController: UITableViewController {
 // create a context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-    
+    override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+            
+            loadFolder()
+        }
+        
+        override func viewWillAppear(_ animated: Bool) {
+            tableView.reloadData()
+        }
+        
+        //MARK: - Data manipulation methods
+        
+        func loadFolder() {
+            let request: NSFetchRequest<Categories> = Categories.fetchRequest()
+            
+            do {
+                categories = try context.fetch(request)
+            } catch {
+                print("Error loading categories \(error.localizedDescription)")
+            }
+            
+            tableView.reloadData()
+        }
+        
+        func saveFolders() {
+            do {
+                try context.save()
+                tableView.reloadData()
+            } catch {
+                print("Error saving folders \(error.localizedDescription)")
+            }
+        }
+
+       
