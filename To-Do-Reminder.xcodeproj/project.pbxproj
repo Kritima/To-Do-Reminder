@@ -15,6 +15,7 @@
 		CA0BDF3824A263D90074C685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */; };
 		CA0BDF4024A26DC90074C685 /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0BDF3F24A26DC90074C685 /* NewListViewController.swift */; };
 		CAF81F7524A67C7F000E9C36 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF81F7424A67C7F000E9C36 /* Date+Extension.swift */; };
+		CAF81F7924A6A17E000E9C36 /* TodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAF81F7724A6A17E000E9C36 /* TodoList.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CA0BDF3924A263D90074C685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA0BDF3F24A26DC90074C685 /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
 		CAF81F7424A67C7F000E9C36 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CAF81F7824A6A17E000E9C36 /* TodoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoList.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */,
 				CA0BDF3924A263D90074C685 /* Info.plist */,
 				CA0BDF3F24A26DC90074C685 /* NewListViewController.swift */,
+				CAF81F7724A6A17E000E9C36 /* TodoList.xcdatamodeld */,
 			);
 			path = "To-Do-Reminder";
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				CA0BDF2C24A263D60074C685 /* AppDelegate.swift in Sources */,
 				CA0BDF2E24A263D60074C685 /* SceneDelegate.swift in Sources */,
 				CA0BDF4024A26DC90074C685 /* NewListViewController.swift in Sources */,
+				CAF81F7924A6A17E000E9C36 /* TodoList.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +358,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CAF81F7724A6A17E000E9C36 /* TodoList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CAF81F7824A6A17E000E9C36 /* TodoList.xcdatamodel */,
+			);
+			currentVersion = CAF81F7824A6A17E000E9C36 /* TodoList.xcdatamodel */;
+			path = TodoList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CA0BDF2024A263D60074C685 /* Project object */;
 }
