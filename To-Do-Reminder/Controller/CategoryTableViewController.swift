@@ -13,6 +13,7 @@ class CategoryTableViewController: UITableViewController {
     
     // create a folder array to populate the table
     var categories = [Categories]()
+    var notification = [Note]()
     
     // create a context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -119,6 +120,58 @@ class CategoryTableViewController: UITableViewController {
         
     }*/
 }
+    
+    extension CategoryTableViewController {
+        
+    //    sets up notifications for the tasks
+        func setUpNotifications() {
+            
+            checkDueTasks()
+            if notification.count > 0 {
+                for task in notification {
+                    
+                    if let name = task.name {
+                        let notificationCenter = UNUserNotificationCenter.current()
+                        let notificationContent = UNMutableNotificationContent()
+                        
+                        notificationContent.title = "Task Reminder"
+                        notificationContent.body = "Just a friendly reminder that \(name) is due tommorow"
+                        notificationContent.sound = .default
+    //                    sets up notification for a day before the task
+                        let fromDate = Calendar.current.date(byAdding: .day, value: -1, to: task.due_date!)!
+                        let components = Calendar.current.dateComponents([.month, .day, .year], from: fromDate)
+                        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+                        let request = UNNotificationRequest(identifier: "\(name)taskid", content: notificationContent, trigger: trigger)
+                        notificationCenter.add(request) { (error) in
+                            if error != nil {
+                                print(error ?? "notification center error")
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+
+func checkDueTasks() {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request: NSFetchRequest<Note> = Note.fetchRequest()
+        do {
+            let notifications = try context.fetch(request)
+            for task in notifications {
+                if Calendar.current.isDateInTomorrow(task.due_date!) {
+                    notification.append(task)
+                }
+            }
+        } catch {
+            print("Error loading todos \(error.localizedDescription)")
+        }
+        
+    }
+    
+}
+
 
 
 
