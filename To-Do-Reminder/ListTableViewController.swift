@@ -11,257 +11,115 @@ import CoreData
 
 class ListTableViewController: UITableViewController {
 
-    @IBOutlet weak var trashBtn: UIBarButtonItem!
-    @IBOutlet weak var moveToBtn: UIBarButtonItem!
-    
-  /*  var notes = [Note]()
-    var selectedFolder: Folder? {
-        didSet {
-            loadNotes()
-        }
-    }
-    
-    var editMode: Bool = false
+   /* // create a folder array to populate the table
+    var lists = []()
     
     // create a context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    let searchController = UISearchController(searchResultsController: nil)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showSearchBar()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        
+        loadFolder()
     }
     
-    //MARK: - view will appear
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-
+    
+    //MARK: - Data manipulation methods
+    
+    func loadFolder() {
+        let request: NSFetchRequest<Lists> = Categories.fetchRequest()
+        
+        do {
+            categories = try context.fetch(request)
+        } catch {
+            print("Error loading categories \(error.localizedDescription)")
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func saveFolders() {
+        do {
+            try context.save()
+            tableView.reloadData()
+        } catch {
+            print("Error saving folders \(error.localizedDescription)")
+        }
+    }
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return notes.count
+        return lists.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
-        let note = notes[indexPath.row]
-        cell.textLabel?.text = note.title
-        
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = .darkGray
-        cell.selectedBackgroundView = backgroundView
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+        cell.textLabel?.text = lists[indexPath.row].category
+     //   cell.textLabel?.textColor = .lightGray
+     //   cell.detailTextLabel?.textColor = .lightGray
+        //  cell.detailTextLabel?.text = "\(categories[indexPath.row].notes?.count ?? 0)"
+        cell.imageView?.image = UIImage(systemName: "folder")
+        cell.selectionStyle = .none
         return cell
     }
-
-
     
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-
-    
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            deleteNote(note: notes[indexPath.row])
-            saveNotes()
-            notes.remove(at: indexPath.row)
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    //MARK: - add category method
+    @IBAction func addFolder(_ sender: UIBarButtonItem) {
+        
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New List", message: "", preferredStyle: .alert)
+        let addAction = UIAlertAction(title: "Add", style: .default) { (action) in
+            let folderNames = self.categories.map {$0.category}
+            guard !folderNames.contains(textField.text) else {self.showAlert(); return}
+            let newFolder = Categories(context: self.context)
+            newFolder.category = textField.text!
+            self.categories.append(newFolder)
+            self.saveFolders()
         }
-    }
-
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    //MARK: - Action methods
-    
-    
-    @IBAction func deleteNotes(_ sender: UIBarButtonItem) {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        // change the font color of cancel action
+        cancelAction.setValue(UIColor.orange, forKey: "titleTextColor")
         
-        if let indexPaths = tableView.indexPathsForSelectedRows {
-            let rows = (indexPaths.map {$0.row}).sorted(by: >)
-            
-            let _ = rows.map {deleteNote(note: notes[$0])}
-            let _ = rows.map {notes.remove(at: $0)}
-            
-            tableView.reloadData()
-            
-            saveNotes()
-        }
-    }
-    
-    @IBAction func editModePressed(_ sender: UIBarButtonItem) {
-        
-        editMode = !editMode
-        
-        tableView.setEditing(editMode ? true : false, animated: true)
-        
-        trashBtn.isEnabled = !trashBtn.isEnabled
-        moveToBtn.isEnabled = !moveToBtn.isEnabled
-    }
-    
-    //MARK: - data manipulation core data
-    
-    func loadNotes(with request: NSFetchRequest<Note> = Note.fetchRequest(), predicate: NSPredicate? = nil) {
-//        let request: NSFetchRequest<Note> = Note.fetchRequest()
-        let folderPredicate = NSPredicate(format: "parentFolder.name=%@", selectedFolder!.name!)
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-        if let addtionalPredicate = predicate {
-            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [folderPredicate, addtionalPredicate])
-        } else {
-            request.predicate = folderPredicate
+        alert.addAction(addAction)
+        alert.addAction(cancelAction)
+        alert.addTextField { (field) in
+            textField = field
+            textField.placeholder = "Folder Name"
         }
         
-        do {
-            notes = try context.fetch(request)
-        } catch {
-            print("Error loading notes \(error.localizedDescription)")
-        }
-        
-        tableView.reloadData()
+        present(alert, animated: true, completion: nil)
     }
     
-    
-    func deleteNote(note: Note) {
-        context.delete(note)
+    func showAlert() {
+        let alert = UIAlertController(title: "Name Taken", message: "Please choose another name", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        okAction.setValue(UIColor.orange, forKey: "titleTextColor")
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
     
-    func saveNotes() {
-        do {
-            try context.save()
-        } catch {
-            print("Error saving the context \(error.localizedDescription)")
-        }
-    }
-    
-    //MARK: - update note
-    func updateNote(with title: String) {
-        notes = []
-        let newNote = Note(context: context)
-        newNote.title = title
-        newNote.parentFolder = selectedFolder
-//        notes.append(newNote)
-        saveNotes()
-        loadNotes()
-    }
-
-    
-    // MARK: - Navigation
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard identifier != "moveNoteSegue" else {
-            return true
-        }
-        return editMode ? false : true
-    }
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        
-        if let destination = segue.destination as? NoteViewController {
-            destination.delegate = self
-            
-            if let cell = sender as? UITableViewCell {
-                if let index = tableView.indexPath(for: cell)?.row {
-                    destination.selectedNote = notes[index]
-                }
-            }
+        let destination = segue.destination as! ListTableViewController
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destination.selectedFolder = categories[indexPath.row]
         }
         
-        if let destination = segue.destination as? MoveToViewController {
-            if let indexPaths = tableView.indexPathsForSelectedRows {
-                let rows = indexPaths.map {$0.row}
-                destination.selectedNotes = rows.map {notes[$0]}
-            }
-        }
     }
-    
-    //MARK: - unwind segue
-    @IBAction func unwindToNoteTableVC(_ unwindSegue: UIStoryboardSegue) {
-//        let sourceViewController = unwindSegue.source
-        // Use data from the view controller which initiated the unwind segue
-        
-        saveNotes()
-        loadNotes()
-        tableView.setEditing(false, animated: false)
-    }
-    
-    //MARK: - show search bar
-    func showSearchBar() {
-        
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Folder"
-        navigationItem.searchController = searchController
-        searchController.searchBar.delegate = self
-        definesPresentationContext = true
-        searchController.searchBar.searchTextField.textColor = .white
-    }
-    
-
+}*/
 }
 
-extension NoteTableViewController: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-                
-//        let request : NSFetchRequest<Note> = Note.fetchRequest()
-        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
-//        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-//        loadNotes(with: request, predicate: predicate)
-        loadNotes(predicate: predicate)
-        
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text?.count == 0 {
-            loadNotes()
-            
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
-            }
-          
-        }
-    }
-}
-
-*/
-}
+  
