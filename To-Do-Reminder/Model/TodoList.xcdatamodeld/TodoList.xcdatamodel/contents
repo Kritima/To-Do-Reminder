@@ -7,9 +7,10 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="due_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="parentFolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categories"/>
     </entity>
     <elements>
         <element name="Categories" positionX="-63" positionY="-18" width="128" height="58"/>
-        <element name="Note" positionX="-54" positionY="0" width="128" height="88"/>
+        <element name="Note" positionX="-54" positionY="0" width="128" height="103"/>
     </elements>
 </model>
