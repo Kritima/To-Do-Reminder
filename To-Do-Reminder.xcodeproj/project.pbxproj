@@ -80,7 +80,6 @@
 				CA0BDF3924A263D90074C685 /* Info.plist */,
 				CA0BDF3F24A26DC90074C685 /* NewListViewController.swift */,
 				CAF81F7F24A6AF3E000E9C36 /* ListTableViewController.swift */,
-				CA5056B724AA433200C52A57 /* MoveToFolderViewController.swift */,
 			);
 			path = "To-Do-Reminder";
 			sourceTree = "<group>";
@@ -105,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				CAF81F7C24A6A94D000E9C36 /* CategoryTableViewController.swift */,
+				CA5056B724AA433200C52A57 /* MoveToFolderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
