@@ -59,6 +59,9 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="My Lists" id="cE8-pn-AtF"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Zdz-7W-Tnc" id="DiV-qF-722"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFc-Gh-OQE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
