@@ -287,10 +287,10 @@
             </objects>
             <point key="canvasLocation" x="267" y="898"/>
         </scene>
-        <!--Note Details View Controller-->
+        <!--List Detail View Controller-->
         <scene sceneID="N4J-6p-X5R">
             <objects>
-                <viewController id="rA6-MS-daO" customClass="NoteDetailsViewController" customModule="To_Do_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rA6-MS-daO" customClass="ListDetailViewController" customModule="To_Do_Reminder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VYk-8C-8wi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

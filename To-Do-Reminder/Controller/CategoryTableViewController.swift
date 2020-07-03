@@ -134,7 +134,7 @@ class CategoryTableViewController: UIViewController {
       
       
       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-          let destination = segue.destination as! TaskTableViewController
+          let destination = segue.destination as! ListTableViewController
           if let indexPath = tableView.indexPathForSelectedRow {
               destination.selectedCategory = categories[indexPath.row]
           }
