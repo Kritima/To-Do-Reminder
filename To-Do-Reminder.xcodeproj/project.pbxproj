@@ -68,20 +68,27 @@
 		CA0BDF2A24A263D60074C685 /* To-Do-Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				CA5056BB24AFF1A000C52A57 /* UI */,
 				CAF81F7E24A6AF0A000E9C36 /* Controller */,
 				CAF81F7B24A6A864000E9C36 /* Model */,
 				CAF81F7624A67C84000E9C36 /* Extension */,
 				CA0BDF2B24A263D60074C685 /* AppDelegate.swift */,
 				CA0BDF2D24A263D60074C685 /* SceneDelegate.swift */,
 				CA0BDF2F24A263D60074C685 /* ViewController.swift */,
-				CA0BDF3124A263D60074C685 /* Main.storyboard */,
 				CA0BDF3424A263D90074C685 /* Assets.xcassets */,
-				CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */,
 				CA0BDF3924A263D90074C685 /* Info.plist */,
-				CAF81F7F24A6AF3E000E9C36 /* ListTableViewController.swift */,
 				CA5056B924AA526A00C52A57 /* ListDetailViewController.swift */,
 			);
 			path = "To-Do-Reminder";
+			sourceTree = "<group>";
+		};
+		CA5056BB24AFF1A000C52A57 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CA0BDF3124A263D60074C685 /* Main.storyboard */,
+				CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		CAF81F7624A67C84000E9C36 /* Extension */ = {
@@ -105,6 +112,7 @@
 			children = (
 				CAF81F7C24A6A94D000E9C36 /* CategoryTableViewController.swift */,
 				CA5056B724AA433200C52A57 /* MoveToFolderViewController.swift */,
+				CAF81F7F24A6AF3E000E9C36 /* ListTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
