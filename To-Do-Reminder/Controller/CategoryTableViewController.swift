@@ -8,129 +8,204 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
-class CategoryTableViewController: UITableViewController {
+class CategoryTableViewController: UIViewController {
     
-    // create a folder array to populate the table
-    var categories = [Categories]()
-    var notification = [Note]()
+  var categoryContext: NSManagedObjectContext!
     
-    // create a context
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+      var notification = [Todo]()
+      var categoryName = UITextField()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
-        loadFolder()
-    }
+      var categories: [Categories] = [Categories]()
+      
+    @IBOutlet var tableView: UITableView!
+    override func viewDidLoad()
+      {
+          super.viewDidLoad()
+          
+          getCoreData()
+          setUpTableView()
+          firstTimeSetup()
+          setUpNotifications()
+          tableView.tableFooterView = UIView()
+      }
+      
+      @IBAction func addCategory(_ sender: Any)
+      {
+          let alert = UIAlertController(title: "Category Name", message: "", preferredStyle: .alert)
+          alert.addTextField(configurationHandler: addCategoryName(textField:))
+          alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
+              if(self.categoryName.text!.count < 1)
+              {
+                  self.emptyFieldAlert()
+                  return
+              }
+              else
+              {
+                  self.addNewCategory()
+              }
+          }))
+          alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+          self.present(alert, animated: true, completion: nil)
+
+      }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
+      func emptyFieldAlert()
+      {
+          let alert = UIAlertController(title: "Error!", message: "Name can't be empty", preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+          self.present(alert, animated: true, completion: nil)
+          
+      }
+      
+      func addCategoryName(textField: UITextField)
+      {
+          self.categoryName = textField
+          self.categoryName.placeholder = "Enter Category Name"
+      }
+
+  }
+
+  extension CategoryTableViewController
+  {
+      
+      func getCoreData() {
+          let appDelegate = UIApplication.shared.delegate as! AppDelegate
+          categoryContext = appDelegate.persistentContainer.viewContext
+          fetchCategoryData()
+          
+      }
+      
+      func firstTimeSetup() {
+          let categoryNames = self.categories.map {$0.category}
+          guard !categoryNames.contains("Archived") else {return}
+          let newCategory = Categories(context: self.categoryContext)
+          newCategory.category = "Archived"
+          self.categories.append(newCategory)
+          do
+          {
+              try categoryContext.save()
+              tableView.reloadData()
+          }
+          catch
+          {
+              print("Error saving categories \(error.localizedDescription)")
+          }
+      }
+      
+      //Function to get category data and display them in a table
+      func fetchCategoryData()
+      {
+          let request: NSFetchRequest<Categories> = Categories.fetchRequest()
+          let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+          request.sortDescriptors = [sortDescriptor]
+          do {
+              categories = try categoryContext.fetch(request)
+          } catch {
+              print("Error loading categories: \(error.localizedDescription)")
+          }
+          tableView.reloadData()
+      }
+      
+      //Function to add new category to category list
+      func addNewCategory()
+      {
+          let categoryNames = self.categories.map {$0.category}
+          guard !categoryNames.contains(categoryName.text) else {self.showAlert(); return}
+          let newCategory = Categories(context: self.categoryContext)
+          newCategory.category = categoryName.text!
+          self.categories.append(newCategory)
+          do {
+              try categoryContext.save()
+              tableView.reloadData()
+          } catch {
+              print("Error saving categories \(error.localizedDescription)")
+          }
+      }
+      
+
+      func showAlert()
+      {
+          let alert = UIAlertController(title: "Category Already Exists!", message: "", preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+          self.present(alert, animated: true, completion: nil)
+      }
+      
+      
+      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          let destination = segue.destination as! TaskTableViewController
+          if let indexPath = tableView.indexPathForSelectedRow {
+              destination.selectedCategory = categories[indexPath.row]
+          }
+      }
+      
+  }
+
+  extension CategoryTableViewController: UITableViewDelegate, UITableViewDataSource {
+      
+
+      func setUpTableView()
+      {
+          tableView.delegate = self
+          tableView.dataSource = self
+          tableView.estimatedRowHeight = 44
+          tableView.rowHeight = UITableView.automaticDimension
+      }
+          
+      
+      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+      {
+          return categories.count
+      }
+      
+      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+          let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+          let category = categories[indexPath.row]
+          if category.category == "Archived"
+          {
+              cell.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+              cell.textLabel?.textColor = UIColor.blue
+              //cell.textLabel?.textAlignment = .center
+          }
+          cell.textLabel?.text = category.category
+          return cell
+      }
     
-    //MARK: - Data manipulation methods
     
-    func loadFolder() {
-        let request: NSFetchRequest<Categories> = Categories.fetchRequest()
-        
-        do {
-            categories = try context.fetch(request)
-        } catch {
-            print("Error loading categories \(error.localizedDescription)")
-        }
-        
-        tableView.reloadData()
-    }
-    
-    func saveFolders() {
-        do {
-            try context.save()
-            tableView.reloadData()
-        } catch {
-            print("Error saving folders \(error.localizedDescription)")
-        }
-    }
-    
-    // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return categories.count
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
-        cell.textLabel?.text = categories[indexPath.row].category
-     //   cell.textLabel?.textColor = .lightGray
-     //   cell.detailTextLabel?.textColor = .lightGray
-        //  cell.detailTextLabel?.text = "\(categories[indexPath.row].notes?.count ?? 0)"
-        cell.imageView?.image = UIImage(systemName: "folder")
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    //MARK: - add category method
-    @IBAction func addFolder(_ sender: UIBarButtonItem) {
-        
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add New CategoryS", message: "", preferredStyle: .alert)
-        let addAction = UIAlertAction(title: "Add", style: .default) { (action) in
-            let folderNames = self.categories.map {$0.category}
-            guard !folderNames.contains(textField.text) else {self.showAlert(); return}
-            let newFolder = Categories(context: self.context)
-            newFolder.category = textField.text!
-            self.categories.append(newFolder)
-            self.saveFolders()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        // change the font color of cancel action
-        cancelAction.setValue(UIColor.orange, forKey: "titleTextColor")
-        
-        alert.addAction(addAction)
-        alert.addAction(cancelAction)
-        alert.addTextField { (field) in
-            textField = field
-            textField.placeholder = "Folder Name"
-        }
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func showAlert() {
-        let alert = UIAlertController(title: "Name Taken", message: "Please choose another name", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        okAction.setValue(UIColor.orange, forKey: "titleTextColor")
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! ListTableViewController
-        if let indexPath = tableView.indexPathForSelectedRow {
-            destination.selectedFolder = categories[indexPath.row]
-        }
-        
-    }*/
-}
+      func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+          let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+                  self.categoryContext.delete(self.categories[indexPath.row])
+                  self.categories.remove(at: indexPath.row)
+                  do {
+                      try self.categoryContext.save()
+                  } catch {
+                      print("Error saving the context \(error.localizedDescription)")
+                  }
+                  self.tableView.reloadData()
+                  completion(true)
+          }
+          
+          delete.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+          delete.image = UIImage(systemName: "trash.fill")
+          return UISwipeActionsConfiguration(actions: [delete])
+      }
+      
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          performSegue(withIdentifier: "noteListScreen", sender: self)
+      }
+  }
     
     extension CategoryTableViewController {
         
-    //    sets up notifications for the tasks
+    //    Notification
         func setUpNotifications() {
             
             checkDueTasks()
             if notification.count > 0 {
                 for task in notification {
                     
-                    if let name = task.name {
+                    if let name = task.title {
                         let notificationCenter = UNUserNotificationCenter.current()
                         let notificationContent = UNMutableNotificationContent()
                         
@@ -156,7 +231,7 @@ class CategoryTableViewController: UITableViewController {
 func checkDueTasks() {
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let request: NSFetchRequest<Note> = Note.fetchRequest()
+        let request: NSFetchRequest<Todo> = Todo.fetchRequest()
         do {
             let notifications = try context.fetch(request)
             for task in notifications {

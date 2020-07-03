@@ -215,6 +215,9 @@
                     <navigationItem key="navigationItem" title="Categories" id="1fL-Rl-2CQ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Hbc-kS-8ff" id="PeP-IR-7CJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyq-xX-Vk2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -284,7 +287,7 @@
         <!--Note Details View Controller-->
         <scene sceneID="N4J-6p-X5R">
             <objects>
-                <viewController id="rA6-MS-daO" customClass="NoteDetailsViewController" customModule="todo_Chaitanya_C0777253" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rA6-MS-daO" customClass="NoteDetailsViewController" customModule="To_Do_Reminder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VYk-8C-8wi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

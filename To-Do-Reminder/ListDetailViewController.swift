@@ -36,29 +36,26 @@ class NoteDetailsViewController: UIViewController, UIPopoverPresentationControll
         {
             setData()
         }
-        // Do any additional setup after loading the view.
     }
     
-    /// Action Function  to Save or Update a note. Also performs Validations
-    /// - Parameter sender: Save Button
     @IBAction func saveTapped(_ sender: Any) {
         var no_prob = false
         let title = mTitleTextField.text
         if (title != nil), (title != "")
         {
-            if mSelectedNote != nil
+            if selectedNote != nil
             {
-                mSelectedNote?.title = mTitleTextField.text
+                selectedNote?.title = mTitleTextField.text
                 var desc = mDescTextView.text
                 if desc == "Add Description"
                 {
                     desc = nil
                 }
-                mSelectedNote?.desc = desc
-                mSelectedNote?.remindme = mRemindMeSwitch.isOn
+                selectedNote?.desc = desc
+                selectedNote?.remindme = mRemindMeSwitch.isOn
                 if let date = mDueDate
                 {
-                    mSelectedNote?.date = date
+                    selectedNote?.date = date
                 }
                 no_prob = checkReminder(remindme: mRemindMeSwitch.isOn, date: mSelectedNote?.date)
                 if no_prob
@@ -90,11 +87,7 @@ class NoteDetailsViewController: UIViewController, UIPopoverPresentationControll
         }
     }
     
-    /// Function to check if remind me is true and if so then due date is set
-    /// - Parameters:
-    ///   - remindme: if remind me is true
-    ///   - date: due date
-    /// - Returns: check if remind me is true and if so then due date is set
+  
     func checkReminder(remindme: Bool, date: Date?) -> Bool
     {
         if remindme, date != nil

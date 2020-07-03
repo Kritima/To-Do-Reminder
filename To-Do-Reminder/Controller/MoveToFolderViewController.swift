@@ -13,7 +13,7 @@ import CoreData
 class MoveToFolderViewController: UIViewController {
     
     var categories = [Categories]()
-    var selectedNote: [Note]? {
+    var selectedNote: [Todo]? {
         didSet {
             loadCategories()
         }
@@ -35,7 +35,7 @@ class MoveToFolderViewController: UIViewController {
 
 
 
-//MARK: core data methods implemented
+
 extension MoveToFolderViewController {
     
     func loadCategories() {
@@ -53,9 +53,6 @@ extension MoveToFolderViewController {
 }
 
 
-
-
-//MARK: table view methods implemented
 extension MoveToFolderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
