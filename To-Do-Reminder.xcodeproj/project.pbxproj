@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		CA0BDF2C24A263D60074C685 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0BDF2B24A263D60074C685 /* AppDelegate.swift */; };
 		CA0BDF2E24A263D60074C685 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0BDF2D24A263D60074C685 /* SceneDelegate.swift */; };
-		CA0BDF3024A263D60074C685 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0BDF2F24A263D60074C685 /* ViewController.swift */; };
 		CA0BDF3324A263D60074C685 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0BDF3124A263D60074C685 /* Main.storyboard */; };
 		CA0BDF3524A263D90074C685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA0BDF3424A263D90074C685 /* Assets.xcassets */; };
 		CA0BDF3824A263D90074C685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */; };
 		CA5056B824AA433200C52A57 /* MoveToFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5056B724AA433200C52A57 /* MoveToFolderViewController.swift */; };
 		CA5056BA24AA526A00C52A57 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5056B924AA526A00C52A57 /* ListDetailViewController.swift */; };
+		CA5056BD24AFF37A00C52A57 /* singleTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5056BC24AFF37A00C52A57 /* singleTask.swift */; };
 		CAF81F7524A67C7F000E9C36 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF81F7424A67C7F000E9C36 /* Date+Extension.swift */; };
 		CAF81F7924A6A17E000E9C36 /* TodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAF81F7724A6A17E000E9C36 /* TodoList.xcdatamodeld */; };
 		CAF81F7D24A6A94E000E9C36 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF81F7C24A6A94D000E9C36 /* CategoryTableViewController.swift */; };
@@ -25,13 +25,13 @@
 		CA0BDF2824A263D60074C685 /* To-Do-Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "To-Do-Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA0BDF2B24A263D60074C685 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA0BDF2D24A263D60074C685 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA0BDF2F24A263D60074C685 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CA0BDF3224A263D60074C685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA0BDF3424A263D90074C685 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA0BDF3724A263D90074C685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA0BDF3924A263D90074C685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA5056B724AA433200C52A57 /* MoveToFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToFolderViewController.swift; sourceTree = "<group>"; };
 		CA5056B924AA526A00C52A57 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		CA5056BC24AFF37A00C52A57 /* singleTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleTask.swift; sourceTree = "<group>"; };
 		CAF81F7424A67C7F000E9C36 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CAF81F7824A6A17E000E9C36 /* TodoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoList.xcdatamodel; sourceTree = "<group>"; };
 		CAF81F7C24A6A94D000E9C36 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -74,10 +74,8 @@
 				CAF81F7624A67C84000E9C36 /* Extension */,
 				CA0BDF2B24A263D60074C685 /* AppDelegate.swift */,
 				CA0BDF2D24A263D60074C685 /* SceneDelegate.swift */,
-				CA0BDF2F24A263D60074C685 /* ViewController.swift */,
 				CA0BDF3424A263D90074C685 /* Assets.xcassets */,
 				CA0BDF3924A263D90074C685 /* Info.plist */,
-				CA5056B924AA526A00C52A57 /* ListDetailViewController.swift */,
 			);
 			path = "To-Do-Reminder";
 			sourceTree = "<group>";
@@ -103,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				CAF81F7724A6A17E000E9C36 /* TodoList.xcdatamodeld */,
+				CA5056BC24AFF37A00C52A57 /* singleTask.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +112,7 @@
 				CAF81F7C24A6A94D000E9C36 /* CategoryTableViewController.swift */,
 				CA5056B724AA433200C52A57 /* MoveToFolderViewController.swift */,
 				CAF81F7F24A6AF3E000E9C36 /* ListTableViewController.swift */,
+				CA5056B924AA526A00C52A57 /* ListDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,9 +189,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAF81F7D24A6A94E000E9C36 /* CategoryTableViewController.swift in Sources */,
+				CA5056BD24AFF37A00C52A57 /* singleTask.swift in Sources */,
 				CA5056B824AA433200C52A57 /* MoveToFolderViewController.swift in Sources */,
 				CAF81F7524A67C7F000E9C36 /* Date+Extension.swift in Sources */,
-				CA0BDF3024A263D60074C685 /* ViewController.swift in Sources */,
 				CAF81F8024A6AF3E000E9C36 /* ListTableViewController.swift in Sources */,
 				CA0BDF2C24A263D60074C685 /* AppDelegate.swift in Sources */,
 				CA0BDF2E24A263D60074C685 /* SceneDelegate.swift in Sources */,

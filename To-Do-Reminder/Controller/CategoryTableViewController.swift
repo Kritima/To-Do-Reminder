@@ -19,7 +19,9 @@ class CategoryTableViewController: UIViewController {
     
       var categories: [Categories] = [Categories]()
       
-    @IBOutlet var tableView: UITableView!
+   
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad()
       {
           super.viewDidLoad()
@@ -30,26 +32,27 @@ class CategoryTableViewController: UIViewController {
           setUpNotifications()
           tableView.tableFooterView = UIView()
       }
-      
-      @IBAction func addCategory(_ sender: Any)
-      {
-          let alert = UIAlertController(title: "Category Name", message: "", preferredStyle: .alert)
-          alert.addTextField(configurationHandler: addCategoryName(textField:))
-          alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
-              if(self.categoryName.text!.count < 1)
-              {
-                  self.emptyFieldAlert()
-                  return
-              }
-              else
-              {
-                  self.addNewCategory()
-              }
-          }))
-          alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-          self.present(alert, animated: true, completion: nil)
 
-      }
+    
+    @IBAction func addCategory(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Category Name", message: "", preferredStyle: .alert)
+               alert.addTextField(configurationHandler: addCategoryName(textField:))
+               alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
+                   if(self.categoryName.text!.count < 1)
+                   {
+                       self.emptyFieldAlert()
+                       return
+                   }
+                   else
+                   {
+                       self.addNewCategory()
+                   }
+               }))
+               alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+               self.present(alert, animated: true, completion: nil)
+    }
+    
     
       func emptyFieldAlert()
       {
@@ -98,7 +101,7 @@ class CategoryTableViewController: UIViewController {
       func fetchCategoryData()
       {
           let request: NSFetchRequest<Categories> = Categories.fetchRequest()
-          let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+          let sortDescriptor = NSSortDescriptor(key: "category", ascending: true)
           request.sortDescriptors = [sortDescriptor]
           do {
               categories = try categoryContext.fetch(request)
@@ -164,7 +167,7 @@ class CategoryTableViewController: UIViewController {
           let category = categories[indexPath.row]
           if category.category == "Archived"
           {
-              cell.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+              cell.backgroundColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
               cell.textLabel?.textColor = UIColor.blue
               //cell.textLabel?.textAlignment = .center
           }
@@ -186,13 +189,13 @@ class CategoryTableViewController: UIViewController {
                   completion(true)
           }
           
-          delete.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+          delete.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
           delete.image = UIImage(systemName: "trash.fill")
           return UISwipeActionsConfiguration(actions: [delete])
       }
       
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          performSegue(withIdentifier: "noteListScreen", sender: self)
+          performSegue(withIdentifier: "listScreen", sender: self)
       }
   }
     

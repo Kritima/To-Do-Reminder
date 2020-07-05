@@ -18,8 +18,6 @@ class ListTableViewController: UIViewController {
            }
        }
        
-    
-    var categoryName: String!
        let todoListContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
        var tasksArray = [Todo]()
        var selectedTodo: Todo?
@@ -36,10 +34,12 @@ class ListTableViewController: UIViewController {
            super.viewDidLoad()
            setUpTableView()
            showSearchBar()
-           categoryLabel.text = selectedCategory!.category
+           navigationItem.title = selectedCategory!.category
            tableView.tableFooterView = UIView()
        }
        
+    
+    
        //Moving to add tasks screen
        @IBAction func addTodo(_ sender: Any) {
            performSegue(withIdentifier: "todoViewScreen", sender: self)
@@ -90,8 +90,8 @@ class ListTableViewController: UIViewController {
        
        func loadTodos(with request: NSFetchRequest<Todo> = Todo.fetchRequest(), predicate: NSPredicate? = nil) {
            
-           let sortOptions = ["date", "name"]
-           let todoPredicate = NSPredicate(format: "parentFolder.name=%@", selectedCategory!.category!)
+           let sortOptions = ["date", "title"]
+           let todoPredicate = NSPredicate(format: "parentFolder.category=%@", selectedCategory!.category!)
            request.sortDescriptors = [NSSortDescriptor(key: sortOptions[selectedSort], ascending: true)]
            if let addtionalPredicate = predicate {
                request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [todoPredicate, addtionalPredicate])

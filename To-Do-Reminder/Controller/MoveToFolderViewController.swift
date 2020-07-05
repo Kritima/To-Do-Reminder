@@ -18,6 +18,7 @@ class MoveToFolderViewController: UIViewController {
             loadCategories()
         }
     }
+  
     @IBOutlet weak var tableView: UITableView!
     
     let moveTodoContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
