@@ -279,7 +279,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="b2Z-om-gha"/>
                         <barButtonItem image="list.bullet.below.rectangle" catalog="system" id="URn-uN-WXl">
                             <connections>
-                                <action selector="addCategory:" destination="d6e-qZ-U7p" id="b80-H8-Z1S"/>
+                                <action selector="addTodo:" destination="d6e-qZ-U7p" id="oQE-bJ-Sxx"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>

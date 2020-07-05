@@ -38,13 +38,11 @@ class ListTableViewController: UIViewController {
            tableView.tableFooterView = UIView()
        }
        
+    @IBAction func addTodo(_ sender: Any) {
+        
+        performSegue(withIdentifier: "todoViewScreen", sender: self)
+    }
     
-    
-       //Moving to add tasks screen
-       @IBAction func addTodo(_ sender: Any) {
-           performSegue(withIdentifier: "todoViewScreen", sender: self)
-       }
-       
        //Integer to indicate the type of sort
        @IBAction func sortTodos(_ sender: UISegmentedControl)
        {
