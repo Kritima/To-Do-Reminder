@@ -11,13 +11,21 @@ import CoreData
 
 class ListDetailViewController: UIViewController {
     
-   @IBOutlet weak var todoTitleLabel: UITextField!
-       @IBOutlet weak var taskText: UITextView!
+    @IBOutlet weak var todoTitleLabel: UITextField!
+    @IBOutlet weak var taskText: UITextView!
+    
        var todo: Todo?
     
        var delegate: ListTableViewController?
        
-       @IBOutlet weak var deadlineLabel: UIDatePicker!
+    
+    @IBOutlet weak var mSaveButton: UIBarButtonItem!
+    @IBOutlet weak var mCompletedButton: UIBarButtonItem!
+    @IBOutlet weak var mDeleteButton: UIBarButtonItem!
+    
+    
+    @IBOutlet weak var deadlineLabel: UIDatePicker!
+    
        @IBOutlet weak var buttonStack: UIStackView!
        override func viewDidLoad()
        {
@@ -29,7 +37,8 @@ class ListDetailViewController: UIViewController {
            
            //Removing options if the task is new
            if todo == nil {
-               buttonStack.isHidden = true
+            mDeleteButton.isEnabled = false
+            mCompletedButton.isEnabled = false
            }
            //Setting values of existing tasks
            if let todoData = todo
@@ -44,43 +53,49 @@ class ListDetailViewController: UIViewController {
            //Causes the view (or one of its embedded text fields) to resign the first responder status.
            view.endEditing(true)
        }
+    
+    @IBAction func saveTask(_ sender: Any) {
+        
+        if(checkTitle())
+        {
+            if todo == nil
+            {
+                delegate?.saveTodo(title: todoTitleLabel!.text!, taskText: taskText!.text!, dueDate: deadlineLabel!.date)
+            }
+            else
+            {
+                todo?.title = todoTitleLabel!.text!
+                todo?.text = taskText!.text!
+                todo?.due_date = deadlineLabel!.date
+                delegate?.updateTodo()
+            }
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
        
-       @IBAction func saveTask(_ sender: Any) {
-           if(checkTitle())
-           {
-               if todo == nil
-               {
-                   delegate?.saveTodo(title: todoTitleLabel!.text!, taskText: taskText!.text!, dueDate: deadlineLabel!.date)
-               }
-               else
-               {
-                   todo?.title = todoTitleLabel!.text!
-                   todo?.text = taskText!.text!
-                   todo?.due_date = deadlineLabel!.date
-                   delegate?.updateTodo()
-               }
-               navigationController?.popViewController(animated: true)
-           }
-       }
-       
-       @IBAction func markCompleted(_ sender: Any) {
-           
-           if(checkTitle()) {
-               todo?.title = todoTitleLabel!.text!
-               todo?.text = taskText!.text!
-               todo?.due_date = deadlineLabel!.date
-               delegate?.markTodoCompleted()
-               navigationController?.popViewController(animated: true)
-           }
-           
-       }
-       
-       @IBAction func deleteTask(_ sender: Any) {
-           
-           delegate?.deleteTodoFromList()
-           navigationController?.popViewController(animated: true)
-       }
-       
+    
+    @IBAction func markCompleted(_ sender: Any)
+    {
+        
+        if(checkTitle()) {
+                      todo?.title = todoTitleLabel!.text!
+                      todo?.text = taskText!.text!
+                      todo?.due_date = deadlineLabel!.date
+                      delegate?.markTodoCompleted()
+                      navigationController?.popViewController(animated: true)
+                  }
+                  
+        
+    }
+    
+    
+    @IBAction func deleteTask(_ sender: Any) {
+        
+        delegate?.deleteTodoFromList()
+                  navigationController?.popViewController(animated: true)
+    }
+    
        
    //    method to check weather title is empty or not
        func checkTitle() -> Bool {

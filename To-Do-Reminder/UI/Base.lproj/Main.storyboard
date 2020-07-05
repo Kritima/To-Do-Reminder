@@ -148,19 +148,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Task" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xv-Zj-fxe">
-                                <rect key="frame" x="20" y="108" width="374" height="40"/>
+                                <rect key="frame" x="20" y="108" width="43.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="l1f-fy-b0a"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ly4-HL-E6q">
-                                <rect key="frame" x="20" y="793" width="374" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uS6-ZS-nGz">
                                 <rect key="frame" x="20" y="156" width="127" height="30"/>
                                 <subviews>
@@ -179,8 +173,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <datePicker clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="100" verticalHuggingPriority="100" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="MFB-u3-ZsG">
-                                <rect key="frame" x="20" y="194" width="394" height="216"/>
+                            <datePicker clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="100" verticalHuggingPriority="100" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="MFB-u3-ZsG">
+                                <rect key="frame" x="20" y="194" width="320" height="216"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </datePicker>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add Description" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rKe-Sm-xri">
@@ -196,19 +190,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="DBx-zD-AS8" firstAttribute="trailing" secondItem="ly4-HL-E6q" secondAttribute="trailing" constant="20" id="1ZI-dO-LkS"/>
-                            <constraint firstItem="ly4-HL-E6q" firstAttribute="leading" secondItem="DBx-zD-AS8" secondAttribute="leading" constant="20" id="2IX-Dw-WOT"/>
-                            <constraint firstItem="rKe-Sm-xri" firstAttribute="leading" secondItem="ly4-HL-E6q" secondAttribute="leading" id="4Lb-i1-OSC"/>
-                            <constraint firstItem="rKe-Sm-xri" firstAttribute="leading" secondItem="MFB-u3-ZsG" secondAttribute="leading" id="Erw-Fo-MdC"/>
-                            <constraint firstItem="DBx-zD-AS8" firstAttribute="trailing" secondItem="rKe-Sm-xri" secondAttribute="trailing" constant="20" id="HCq-t3-X6G"/>
-                            <constraint firstItem="uS6-ZS-nGz" firstAttribute="top" secondItem="2xv-Zj-fxe" secondAttribute="bottom" constant="8" id="KAi-9w-krX"/>
-                            <constraint firstItem="DBx-zD-AS8" firstAttribute="trailing" secondItem="2xv-Zj-fxe" secondAttribute="trailing" constant="20" id="WD6-Uy-4Fn"/>
-                            <constraint firstItem="2xv-Zj-fxe" firstAttribute="leading" secondItem="DBx-zD-AS8" secondAttribute="leading" constant="20" id="b9c-gG-1NX"/>
-                            <constraint firstItem="rKe-Sm-xri" firstAttribute="top" secondItem="MFB-u3-ZsG" secondAttribute="bottom" constant="8" id="c4i-pL-eZ2"/>
-                            <constraint firstItem="ly4-HL-E6q" firstAttribute="bottom" secondItem="DBx-zD-AS8" secondAttribute="bottom" constant="-20" id="duK-Rb-Kc2"/>
-                            <constraint firstItem="uS6-ZS-nGz" firstAttribute="leading" secondItem="DBx-zD-AS8" secondAttribute="leading" constant="20" id="nUB-o2-TxC"/>
-                            <constraint firstItem="2xv-Zj-fxe" firstAttribute="top" secondItem="DBx-zD-AS8" secondAttribute="top" constant="20" id="sXX-Q0-OP2"/>
-                            <constraint firstItem="ly4-HL-E6q" firstAttribute="top" secondItem="rKe-Sm-xri" secondAttribute="bottom" constant="20" id="u93-bK-DCg"/>
+                            <constraint firstItem="uS6-ZS-nGz" firstAttribute="top" secondItem="2xv-Zj-fxe" secondAttribute="bottom" constant="8" id="2ww-fd-RpX"/>
+                            <constraint firstItem="rKe-Sm-xri" firstAttribute="leading" secondItem="uS6-ZS-nGz" secondAttribute="leading" id="6tg-26-HQL"/>
+                            <constraint firstItem="rKe-Sm-xri" firstAttribute="leading" secondItem="2xv-Zj-fxe" secondAttribute="leading" id="aAw-7p-YkR"/>
+                            <constraint firstItem="rKe-Sm-xri" firstAttribute="leading" secondItem="VYk-8C-8wi" secondAttribute="leadingMargin" id="aL4-1J-WNK"/>
+                            <constraint firstItem="rKe-Sm-xri" firstAttribute="trailing" secondItem="VYk-8C-8wi" secondAttribute="trailingMargin" id="aLM-QO-hDe"/>
+                            <constraint firstItem="DBx-zD-AS8" firstAttribute="bottom" secondItem="rKe-Sm-xri" secondAttribute="bottom" constant="40" id="iEb-zY-Hsj"/>
+                            <constraint firstItem="MFB-u3-ZsG" firstAttribute="top" secondItem="uS6-ZS-nGz" secondAttribute="bottom" constant="8" id="lRp-7g-SXU"/>
+                            <constraint firstItem="rKe-Sm-xri" firstAttribute="leading" secondItem="MFB-u3-ZsG" secondAttribute="leading" id="r4B-XS-a9W"/>
+                            <constraint firstItem="uS6-ZS-nGz" firstAttribute="top" secondItem="VYk-8C-8wi" secondAttribute="top" constant="156" id="vrY-Ne-XCV"/>
+                            <constraint firstItem="DBx-zD-AS8" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2xv-Zj-fxe" secondAttribute="trailing" symbolic="YES" id="zqM-Uz-DrI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DBx-zD-AS8"/>
                     </view>
@@ -216,32 +207,31 @@
                         <barButtonItem image="trash" catalog="system" id="KNq-7W-2hw">
                             <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="deletetapped:" destination="rA6-MS-daO" id="Khi-Ci-f6o"/>
+                                <action selector="deleteTask:" destination="rA6-MS-daO" id="Nrd-Vd-32T"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="OZU-Ar-mRR"/>
                         <barButtonItem title="Item" image="checkmark.circle" catalog="system" id="bCp-ho-lxc">
                             <connections>
-                                <action selector="completedTapped:" destination="rA6-MS-daO" id="qot-LC-ncJ"/>
+                                <action selector="markCompleted:" destination="rA6-MS-daO" id="YD7-Zv-1lY"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="IWf-ZW-wTU">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="D44-hN-l48">
                             <connections>
-                                <action selector="saveTapped:" destination="rA6-MS-daO" id="0fn-G9-eXp"/>
+                                <action selector="saveTask:" destination="rA6-MS-daO" id="dvn-jy-PNc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="mCompletedButton" destination="bCp-ho-lxc" id="j68-TX-RtK"/>
-                        <outlet property="mCreatedDateLabel" destination="ly4-HL-E6q" id="1o9-Ws-We6"/>
-                        <outlet property="mDeleteButton" destination="KNq-7W-2hw" id="lnF-Gz-NfK"/>
-                        <outlet property="mDescTextView" destination="rKe-Sm-xri" id="egS-JD-gck"/>
-                        <outlet property="mDueDateButton" destination="APK-4Q-6fY" id="pNi-Mo-5rX"/>
-                        <outlet property="mSaveButton" destination="D44-hN-l48" id="aQe-1H-f3O"/>
-                        <outlet property="mTitleTextField" destination="2xv-Zj-fxe" id="MpE-ul-vIN"/>
+                        <outlet property="deadlineLabel" destination="MFB-u3-ZsG" id="jys-I2-yng"/>
+                        <outlet property="mCompletedButton" destination="bCp-ho-lxc" id="At0-09-Csj"/>
+                        <outlet property="mDeleteButton" destination="KNq-7W-2hw" id="B36-U5-eYv"/>
+                        <outlet property="mSaveButton" destination="D44-hN-l48" id="QuQ-4t-Fue"/>
+                        <outlet property="taskText" destination="rKe-Sm-xri" id="5VT-4D-wYQ"/>
+                        <outlet property="todoTitleLabel" destination="2xv-Zj-fxe" id="gHu-R6-dmH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hgc-iS-6Wo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
