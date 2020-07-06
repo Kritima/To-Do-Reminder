@@ -248,7 +248,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fZg-Lb-b9N">
-                                <rect key="frame" x="0.0" y="115" width="414" height="822"/>
+                                <rect key="frame" x="0.0" y="118" width="414" height="659"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -262,17 +262,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1Bd-hJ-uik">
+                                <rect key="frame" x="2" y="779" width="410" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.30196078430000001" green="0.67843137249999996" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="Date"/>
+                                    <segment title="Name"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sortTodos:" destination="d6e-qZ-U7p" eventType="valueChanged" id="cAQ-ZG-cKD"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="nOI-Hv-g97"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Item" image="calendar.circle" catalog="system" id="DwI-wn-fxx">
+                        <barButtonItem title="Sort" id="DwI-wn-fxx">
                             <connections>
-                                <action selector="dateSorting:" destination="d6e-qZ-U7p" id="tWT-La-V6e"/>
+                                <action selector="sorting:" destination="d6e-qZ-U7p" id="7aD-Fs-iOG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Item" image="nairasign.circle" catalog="system" id="L6M-A7-34p"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="b2Z-om-gha"/>
                         <barButtonItem image="list.bullet.below.rectangle" catalog="system" id="URn-uN-WXl">
                             <connections>
@@ -283,6 +294,8 @@
                     <navigationItem key="navigationItem" id="RQq-eV-hKt"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="sort" destination="DwI-wn-fxx" id="VaY-AF-VOE"/>
+                        <outlet property="sortSegment" destination="1Bd-hJ-uik" id="xaH-VL-1fV"/>
                         <outlet property="tableView" destination="fZg-Lb-b9N" id="64B-ED-jnF"/>
                         <segue destination="rA6-MS-daO" kind="show" identifier="todoViewScreen" id="gwc-zT-vgW"/>
                         <segue destination="sC8-or-hya" kind="presentation" identifier="moveTodoScreen" id="zym-a4-Epi"/>
@@ -295,11 +308,9 @@
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="calendar.circle" catalog="system" width="128" height="121"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="folder.badge.plus" catalog="system" width="128" height="86"/>
         <image name="list.bullet.below.rectangle" catalog="system" width="128" height="112"/>
-        <image name="nairasign.circle" catalog="system" width="128" height="121"/>
         <image name="trash" catalog="system" width="121" height="128"/>
     </resources>
 </document>

@@ -24,28 +24,55 @@ class ListTableViewController: UIViewController {
        var todoToMove = [Todo]()
        
        let searchController = UISearchController(searchResultsController: nil)
-    @IBOutlet weak var dateSort: UIBarButtonItem!
-    @IBOutlet weak var titleSort: UIBarButtonItem!
+    @IBOutlet weak var sort: UIBarButtonItem!
     
        
         @IBOutlet var tableView: UITableView!
        @IBOutlet weak var categoryLabel: UILabel!
-       @IBOutlet weak var sortSegment: UISegmentedControl!
-       
+    @IBOutlet weak var sortSegment: UISegmentedControl!
+    
        override func viewDidLoad() {
            super.viewDidLoad()
+        sortSegment.isHidden = true
            setUpTableView()
            showSearchBar()
            navigationItem.title = selectedCategory!.category
            tableView.tableFooterView = UIView()
        }
+    
+    @IBAction func sorting(_ sender: Any) {
+        if(sortSegment.isHidden == true)
+        {
+        sortSegment.isHidden = false
+        }
+        
+        else
+        {
+            sortSegment.isHidden = true
+        }
+    }
+    
        
     @IBAction func addTodo(_ sender: Any) {
         
         performSegue(withIdentifier: "todoViewScreen", sender: self)
     }
     
-       
+    @IBAction func sortTodos(_ sender: UISegmentedControl)
+           {
+               switch sender.selectedSegmentIndex
+               {
+               case 0: selectedSort = 0
+                   break
+               case 1: selectedSort = 1
+                   break
+               default:
+                   break
+               }
+               loadTodos()
+               tableView.reloadData()
+           }
+    
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            
            if let destination = segue.destination as? ListDetailViewController
