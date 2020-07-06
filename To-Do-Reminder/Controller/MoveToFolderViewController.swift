@@ -19,7 +19,7 @@ class MoveToFolderViewController: UIViewController {
         }
     }
   
-    @IBOutlet weak var tableView: UITableView!
+    
     
     let moveTodoContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -29,13 +29,12 @@ class MoveToFolderViewController: UIViewController {
         tableView.dataSource = self
     }
 
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
 }
-
-
-
 
 extension MoveToFolderViewController {
     
