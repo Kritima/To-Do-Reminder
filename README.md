@@ -6,7 +6,7 @@ Kritima Kukreja
 
 ## PROJECT DESCRIPTION
 
-An app that calculates the total bills of a customer. A bill could be for the internet, hydro or mobile usage. A customer may have multiple bills. Implement proper login/logout, display a list of customers, add new customers, data access and storage with singleton class, validations, display errors and alerts, display basic customer information. Adding additional bills. Picker/Segment view for bill types. Proper total calculation, proper validations.
+Create a native application for iPhone or iPad (or Universal) that allows the user to schedule and be reminded of his/her tasks. Your application should allow users to add a task with a description as a goal along with the number of days needed to complete the task. Tasks should be added in a table and the user should be able to edit the tasks as well. You are supposed to categorize your tasks as well.
 
 ## PROJECT OUTPUT
 Screenshot | Description
