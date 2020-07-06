@@ -45,53 +45,6 @@ class ListTableViewController: UIViewController {
         performSegue(withIdentifier: "todoViewScreen", sender: self)
     }
     
-       //Integer to indicate the type of sort
-       @IBAction func sortTodos(_ sender: UISegmentedControl)
-       {
-           switch sender.selectedSegmentIndex
-           {
-           case 0: selectedSort = 0
-               break
-           case 1: selectedSort = 1
-               break
-           default:
-               break
-           }
-           loadTodos()
-           tableView.reloadData()
-       }
-    
-    @IBAction func dateSorting(_ sender: Any) {
-        
-                let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-                let fetchRequest: NSFetchRequest<Todo> = Todo.fetchRequest()
-                let sort = NSSortDescriptor(key: #keyPath(Todo.due_date), ascending: true)
-                fetchRequest.sortDescriptors = [sort]
-        do {
-                      tasksArray = try todoListContext.fetch(fetchRequest)
-                  } catch {
-                      print("Error loading todos \(error.localizedDescription)")
-                  }
-                tableView.reloadData()
-            }
-    
-    
-    @IBAction func nameSorting(_ sender: Any) {
-        
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-                    let fetchRequest: NSFetchRequest<Todo> = Todo.fetchRequest()
-                    let sort = NSSortDescriptor(key: #keyPath(Todo.title), ascending: true)
-                    fetchRequest.sortDescriptors = [sort]
-            do {
-                          tasksArray = try todoListContext.fetch(fetchRequest)
-                      } catch {
-                          print("Error loading todos \(error.localizedDescription)")
-                      }
-                    tableView.reloadData()
-                }
-        
-        
-    
        
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            
@@ -122,7 +75,7 @@ class ListTableViewController: UIViewController {
        
        func loadTodos(with request: NSFetchRequest<Todo> = Todo.fetchRequest(), predicate: NSPredicate? = nil) {
            
-           let sortOptions = ["date", "title"]
+          let sortOptions = ["due_date", "title"]
            let todoPredicate = NSPredicate(format: "parentFolder.category=%@", selectedCategory!.category!)
            request.sortDescriptors = [NSSortDescriptor(key: sortOptions[selectedSort], ascending: true)]
            if let addtionalPredicate = predicate {
@@ -138,6 +91,8 @@ class ListTableViewController: UIViewController {
            }
            
        }
+    
+    
        
        func deleteTodoFromList() {
            
@@ -261,7 +216,7 @@ class ListTableViewController: UIViewController {
                self.todoToMove.append(self.tasksArray[indexPath.row])
                self.performSegue(withIdentifier: "moveTodoScreen", sender: nil)
            }
-           complete.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+           complete.backgroundColor = #colorLiteral(red: 0.3019607843, green: 0.6784313725, blue: 0.768627451, alpha: 1)
            complete.image = UIImage(systemName: "checkmark.circle")
            move.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
            move.image = UIImage(systemName: "arrowshape.turn.up.right")
@@ -283,7 +238,7 @@ class ListTableViewController: UIViewController {
            navigationItem.searchController = searchController
            searchController.searchBar.delegate = self
            definesPresentationContext = true
-           searchController.searchBar.searchTextField.textColor = .white
+        searchController.searchBar.searchTextField.textColor = .black
        }
        
        func searchBarSearchButtonClicked(_ searchBar: UISearchBar)

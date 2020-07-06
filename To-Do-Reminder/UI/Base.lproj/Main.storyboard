@@ -272,11 +272,7 @@
                                 <action selector="dateSorting:" destination="d6e-qZ-U7p" id="tWT-La-V6e"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Item" image="nairasign.circle" catalog="system" id="L6M-A7-34p">
-                            <connections>
-                                <action selector="nameSorting:" destination="d6e-qZ-U7p" id="JHF-71-QuF"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem title="Item" image="nairasign.circle" catalog="system" id="L6M-A7-34p"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="b2Z-om-gha"/>
                         <barButtonItem image="list.bullet.below.rectangle" catalog="system" id="URn-uN-WXl">
                             <connections>
