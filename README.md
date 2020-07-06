@@ -11,7 +11,7 @@ Create a native application for iPhone or iPad (or Universal) that allows the us
 ## PROJECT OUTPUT
 Screenshot | Description
 --- | ---
-<img src="https://i93.servimg.com/u/f93/18/45/29/87/screen13.png" alt="launchScreen"/> | Launch screen for the app.
+<img src="https://i93.servimg.com/u/f93/18/45/29/87/screen13.png" alt="launchScreen" width="350" height="600"/> | Launch screen for the app.
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen14.png" alt="notificationaccessScreen"/> | Notification Permission Screen.
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen17.png" alt="customerDetailsScreen"/> | User can delete a task with a left swipe
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen15.png" alt="BillScreen"/> | Category added 
