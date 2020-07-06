@@ -16,6 +16,3 @@ Screenshot | Description
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen17.png" alt="customerDetailsScreen"/> | User can delete a task with a left swipe
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen15.png" alt="BillScreen"/> | Category added 
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen16.png" alt="newBillScreen"/> | User can delete a category with a left swipe
-<img src="https://i93.servimg.com/u/f93/18/45/29/87/screen10.png" alt="newCustomerScreen"/> | Adding a new customer. Added validations for email ID. 
-<img src="https://i93.servimg.com/u/f93/18/45/29/87/newcus13.png" alt="alertScreen"/> | Alerts for the app. New customer added. Username, Password incorrect. 
-<img src="https://i93.servimg.com/u/f93/18/45/29/87/newcus14.png" alt="updatedScreen"/> | Updated List of customer after adding new customer
