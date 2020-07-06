@@ -2,7 +2,7 @@
 //  MoveToFolderViewController.swift
 //  To-Do-Reminder
 //
-//  Created by Kritima Kukreja on 2020-06-29.
+//  Created by Kritima Kukreja on 2020-07-06.
 //  Copyright © 2020 Kritima Kukreja. All rights reserved.
 //
 
@@ -20,13 +20,14 @@ class MoveToFolderViewController: UIViewController {
     }
   
     
+    @IBOutlet weak var tableView: UITableView!
     
     let moveTodoContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    //    tableView.delegate = self
-            //    tableView.dataSource = self
+        tableView.delegate = self
+                tableView.dataSource = self
     }
 
     
@@ -40,7 +41,7 @@ extension MoveToFolderViewController {
     
     func loadCategories() {
         let request: NSFetchRequest<Categories> = Categories.fetchRequest()
-        let categoryPredicate = NSPredicate(format: "NOT name MATCHES %@", selectedNote?[0].parentFolder?.category ?? "")
+        let categoryPredicate = NSPredicate(format: "NOT category MATCHES %@", selectedNote?[0].parentFolder?.category ?? "")
         request.predicate = categoryPredicate
         
         do {
@@ -73,4 +74,5 @@ extension MoveToFolderViewController: UITableViewDelegate, UITableViewDataSource
         
     }
 }
+
 

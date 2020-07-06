@@ -22,6 +22,7 @@ class ListDetailViewController: UIViewController {
     @IBOutlet weak var mSaveButton: UIBarButtonItem!
     @IBOutlet weak var mCompletedButton: UIBarButtonItem!
     @IBOutlet weak var mDeleteButton: UIBarButtonItem!
+    @IBOutlet weak var addDueDate: UIButton!
     
     
     @IBOutlet weak var deadlineLabel: UIDatePicker!
@@ -31,6 +32,7 @@ class ListDetailViewController: UIViewController {
        {
            
            super.viewDidLoad()
+        addDueDate.isEnabled = false
            //Gesture to dismiss keyboard
            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
            view.addGestureRecognizer(tap)

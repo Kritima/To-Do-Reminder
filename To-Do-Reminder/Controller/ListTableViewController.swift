@@ -61,7 +61,37 @@ class ListTableViewController: UIViewController {
            tableView.reloadData()
        }
     
-
+    @IBAction func dateSorting(_ sender: Any) {
+        
+                let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                let fetchRequest: NSFetchRequest<Todo> = Todo.fetchRequest()
+                let sort = NSSortDescriptor(key: #keyPath(Todo.due_date), ascending: true)
+                fetchRequest.sortDescriptors = [sort]
+        do {
+                      tasksArray = try todoListContext.fetch(fetchRequest)
+                  } catch {
+                      print("Error loading todos \(error.localizedDescription)")
+                  }
+                tableView.reloadData()
+            }
+    
+    
+    @IBAction func nameSorting(_ sender: Any) {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                    let fetchRequest: NSFetchRequest<Todo> = Todo.fetchRequest()
+                    let sort = NSSortDescriptor(key: #keyPath(Todo.title), ascending: true)
+                    fetchRequest.sortDescriptors = [sort]
+            do {
+                          tasksArray = try todoListContext.fetch(fetchRequest)
+                      } catch {
+                          print("Error loading todos \(error.localizedDescription)")
+                      }
+                    tableView.reloadData()
+                }
+        
+        
+    
        
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            
@@ -139,7 +169,7 @@ class ListTableViewController: UIViewController {
            
            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
            let request: NSFetchRequest<Categories> = Categories.fetchRequest()
-           let folderPredicate = NSPredicate(format: "name MATCHES %@", "Archived")
+           let folderPredicate = NSPredicate(format: "category MATCHES %@", "Archived")
            request.predicate = folderPredicate
            do {
                let category = try context.fetch(request)
@@ -201,7 +231,7 @@ class ListTableViewController: UIViewController {
                cell.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
            }
 
-           if (Calendar.current.isDateInToday(task.due_date!) && task.parentFolder?.category != "Archived")
+           if (task.due_date! > Date() && task.parentFolder?.category != "Archived")
            {
                cell.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
            }
@@ -217,7 +247,7 @@ class ListTableViewController: UIViewController {
                completion(true)
            }
            
-           delete.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+           delete.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
            delete.image = UIImage(systemName: "trash.fill")
            return UISwipeActionsConfiguration(actions: [delete])
        }
@@ -259,7 +289,7 @@ class ListTableViewController: UIViewController {
        func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
            
        {
-           let predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchBar.text!)
+           let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
            loadTodos(predicate: predicate)
            tableView.reloadData()
        }
@@ -288,4 +318,3 @@ class ListTableViewController: UIViewController {
            searchBar.resignFirstResponder()
        }
    }
-
