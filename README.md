@@ -11,7 +11,7 @@ Create a native application for iPhone or iPad (or Universal) that allows the us
 ## PROJECT OUTPUT
 Screenshot | Description
 --- | ---
-<img src="https://i93.servimg.com/u/f93/18/45/29/87/login14.png" alt="loginScreen"/> | Login screen for the app. Added validations. Added toggle hide password. Added Remember me. 'Sign up' button goes to add customer view controller.
+<img src="https://i93.servimg.com/u/f93/18/45/29/87/screen13.png" alt="loginScreen"/> | Login screen for the app. Added validations. Added toggle hide password. Added Remember me. 'Sign up' button goes to add customer view controller.
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/custom13.png" alt="customerScreen"/> | List of customers. Logout button and new customer button added.
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/custom10.jpg" alt="customerDetailsScreen"/> | Detailed view of a single customer. Clicking on a bill moves to a detailed view of the bill. New bill button move to a screen to add a new bill.
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/billde10.png" alt="BillScreen"/> | View of bill. Contains bill amounts. 
