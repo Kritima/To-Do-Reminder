@@ -152,7 +152,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Task" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xv-Zj-fxe">
                                 <rect key="frame" x="20" y="108" width="43.5" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="l1f-fy-b0a"/>
+                                    <constraint firstAttribute="height" constant="40" id="aHR-On-h5W"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -180,11 +180,8 @@
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </datePicker>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add Description" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rKe-Sm-xri">
-                                <rect key="frame" x="20" y="378" width="374" height="395"/>
+                                <rect key="frame" x="20" y="430" width="374" height="343"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="395" id="cE0-3Q-4Gx"/>
-                                </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -192,16 +189,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="uS6-ZS-nGz" firstAttribute="top" secondItem="2xv-Zj-fxe" secondAttribute="bottom" constant="8" id="2ww-fd-RpX"/>
-                            <constraint firstItem="rKe-Sm-xri" firstAttribute="leading" secondItem="uS6-ZS-nGz" secondAttribute="leading" id="6tg-26-HQL"/>
-                            <constraint firstItem="rKe-Sm-xri" firstAttribute="leading" secondItem="2xv-Zj-fxe" secondAttribute="leading" id="aAw-7p-YkR"/>
-                            <constraint firstItem="rKe-Sm-xri" firstAttribute="leading" secondItem="VYk-8C-8wi" secondAttribute="leadingMargin" id="aL4-1J-WNK"/>
-                            <constraint firstItem="rKe-Sm-xri" firstAttribute="trailing" secondItem="VYk-8C-8wi" secondAttribute="trailingMargin" id="aLM-QO-hDe"/>
-                            <constraint firstItem="DBx-zD-AS8" firstAttribute="bottom" secondItem="rKe-Sm-xri" secondAttribute="bottom" constant="40" id="iEb-zY-Hsj"/>
-                            <constraint firstItem="MFB-u3-ZsG" firstAttribute="top" secondItem="uS6-ZS-nGz" secondAttribute="bottom" constant="8" id="lRp-7g-SXU"/>
-                            <constraint firstItem="rKe-Sm-xri" firstAttribute="leading" secondItem="MFB-u3-ZsG" secondAttribute="leading" id="r4B-XS-a9W"/>
-                            <constraint firstItem="uS6-ZS-nGz" firstAttribute="top" secondItem="VYk-8C-8wi" secondAttribute="top" constant="156" id="vrY-Ne-XCV"/>
-                            <constraint firstItem="DBx-zD-AS8" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2xv-Zj-fxe" secondAttribute="trailing" symbolic="YES" id="zqM-Uz-DrI"/>
+                            <constraint firstItem="MFB-u3-ZsG" firstAttribute="top" secondItem="uS6-ZS-nGz" secondAttribute="bottom" constant="8" id="9zR-Xw-0GG"/>
+                            <constraint firstItem="rKe-Sm-xri" firstAttribute="leading" secondItem="DBx-zD-AS8" secondAttribute="leading" constant="20" id="BYf-AH-ouZ"/>
+                            <constraint firstItem="rKe-Sm-xri" firstAttribute="top" secondItem="MFB-u3-ZsG" secondAttribute="bottom" constant="20" id="MY4-VS-a38"/>
+                            <constraint firstItem="uS6-ZS-nGz" firstAttribute="leading" secondItem="MFB-u3-ZsG" secondAttribute="leading" id="POd-Ud-pL5"/>
+                            <constraint firstItem="DBx-zD-AS8" firstAttribute="trailing" secondItem="rKe-Sm-xri" secondAttribute="trailing" constant="20" id="QEy-Y7-IJy"/>
+                            <constraint firstItem="DBx-zD-AS8" firstAttribute="trailing" secondItem="rKe-Sm-xri" secondAttribute="trailing" constant="20" id="a6e-fr-r9g"/>
+                            <constraint firstItem="2xv-Zj-fxe" firstAttribute="leading" secondItem="VYk-8C-8wi" secondAttribute="leadingMargin" id="cfz-lS-0n1"/>
+                            <constraint firstItem="2xv-Zj-fxe" firstAttribute="leading" secondItem="uS6-ZS-nGz" secondAttribute="leading" id="m96-Zq-msQ"/>
+                            <constraint firstItem="2xv-Zj-fxe" firstAttribute="top" secondItem="DBx-zD-AS8" secondAttribute="top" constant="20" id="pCX-SF-P8S"/>
+                            <constraint firstItem="uS6-ZS-nGz" firstAttribute="top" secondItem="2xv-Zj-fxe" secondAttribute="bottom" constant="8" id="uKk-om-rZJ"/>
+                            <constraint firstItem="DBx-zD-AS8" firstAttribute="bottom" secondItem="rKe-Sm-xri" secondAttribute="bottom" constant="40" id="va1-r3-I9g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DBx-zD-AS8"/>
                     </view>
@@ -215,7 +213,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="OZU-Ar-mRR"/>
                         <barButtonItem title="Item" image="checkmark.circle" catalog="system" id="bCp-ho-lxc">
                             <connections>
-                                <action selector="markCompleted:" destination="rA6-MS-daO" id="YD7-Zv-1lY"/>
+                                <action selector="markCompleted:" destination="rA6-MS-daO" id="ou8-cn-Lnq"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>

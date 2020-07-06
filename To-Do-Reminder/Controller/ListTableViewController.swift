@@ -24,7 +24,9 @@ class ListTableViewController: UIViewController {
        var todoToMove = [Todo]()
        
        let searchController = UISearchController(searchResultsController: nil)
-       
+    @IBOutlet weak var dateSort: UIBarButtonItem!
+    @IBOutlet weak var titleSort: UIBarButtonItem!
+    
        
         @IBOutlet var tableView: UITableView!
        @IBOutlet weak var categoryLabel: UILabel!
@@ -58,6 +60,8 @@ class ListTableViewController: UIViewController {
            loadTodos()
            tableView.reloadData()
        }
+    
+
        
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            

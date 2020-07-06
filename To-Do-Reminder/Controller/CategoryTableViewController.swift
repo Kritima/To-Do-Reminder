@@ -168,10 +168,11 @@ class CategoryTableViewController: UIViewController {
           if category.category == "Archived"
           {
               cell.backgroundColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
-              cell.textLabel?.textColor = UIColor.blue
+              cell.textLabel?.textColor = UIColor.black
               //cell.textLabel?.textAlignment = .center
           }
           cell.textLabel?.text = category.category
+         cell.imageView?.image = UIImage(systemName: "folder")
           return cell
       }
     

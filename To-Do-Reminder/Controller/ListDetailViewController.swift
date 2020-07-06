@@ -73,21 +73,17 @@ class ListDetailViewController: UIViewController {
         }
     }
     
-       
-    
-    @IBAction func markCompleted(_ sender: Any)
-    {
+    @IBAction func markCompleted(_ sender: Any) {
         
         if(checkTitle()) {
-                      todo?.title = todoTitleLabel!.text!
-                      todo?.text = taskText!.text!
-                      todo?.due_date = deadlineLabel!.date
-                      delegate?.markTodoCompleted()
-                      navigationController?.popViewController(animated: true)
-                  }
-                  
-        
+                            todo?.title = todoTitleLabel!.text!
+                            todo?.text = taskText!.text!
+                            todo?.due_date = deadlineLabel!.date
+                            delegate?.markTodoCompleted()
+                            navigationController?.popViewController(animated: true)
+                        }
     }
+    
     
     
     @IBAction func deleteTask(_ sender: Any) {
