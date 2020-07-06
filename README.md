@@ -11,8 +11,8 @@ Create a native application for iPhone or iPad (or Universal) that allows the us
 ## PROJECT OUTPUT
 Screenshot | Description
 --- | ---
-<img src="https://i93.servimg.com/u/f93/18/45/29/87/screen13.png" alt="loginScreen"/> | Login screen for the app. Added validations. Added toggle hide password. Added Remember me. 'Sign up' button goes to add customer view controller.
-<img src="https://i93.servimg.com/u/f93/18/45/29/87/custom13.png" alt="customerScreen"/> | List of customers. Logout button and new customer button added.
+<img src="https://i93.servimg.com/u/f93/18/45/29/87/screen13.png" alt="launchScreen"/> | Launch screen for the app.
+<img src=" https://i93.servimg.com/u/f93/18/45/29/87/screen14.png" alt="notificationaccessScreen"/> | Notification Permission Screen.
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/custom10.jpg" alt="customerDetailsScreen"/> | Detailed view of a single customer. Clicking on a bill moves to a detailed view of the bill. New bill button move to a screen to add a new bill.
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/billde10.png" alt="BillScreen"/> | View of bill. Contains bill amounts. 
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/newbil10.png" alt="newBillScreen"/> | Adding a new bill. Date Picker for the date. Add necessary and removes unncessary text fields when bill type is selected.
