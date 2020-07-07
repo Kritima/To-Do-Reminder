@@ -18,3 +18,6 @@ Screenshot | Description
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen16.png" alt="newBillScreen" width="350" height="600"/> | User can delete a category with a left swipe
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen19.png" alt="newBillScreen" width="350" height="600"/> | User can add task into that category
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen18.png" alt="newBillScreen" width="350" height="600"/> | Tasks that are due have a green cell color and tasks that are overdue are red in color
+<img src="https://i93.servimg.com/u/f93/18/45/29/87/screen20.png" alt="newBillScreen" width="350" height="600"/> | User can move a task or mark it as done with a right swipe of the cell
+<img src="https://i93.servimg.com/u/f93/18/45/29/87/screen20.png" alt="newBillScreen" width="350" height="600"/> | Tasks can be moved from one category to another
+
