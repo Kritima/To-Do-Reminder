@@ -22,5 +22,5 @@ Screenshot | Description
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen21.png" alt="newBillScreen" width="350" height="600"/> | Tasks can be moved from one category to another
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen22.png" alt="newBillScreen" width="350" height="600"/> | An archived folder contains all completed tasks.
 <img src="https://i93.servimg.com/u/f93/18/45/29/87/screen23.png" alt="newBillScreen" width="350" height="600"/> | Tasks can be sorted using date of creation 
-<img src="https://i93.servimg.com/u/f93/18/45/29/87/screen23.png" alt="newBillScreen" width="350" height="600"/> | Tasks can be sorted using task title
+<img src="https://i93.servimg.com/u/f93/18/45/29/87/screen24.png" alt="newBillScreen" width="350" height="600"/> | Tasks can be sorted using task title
 
