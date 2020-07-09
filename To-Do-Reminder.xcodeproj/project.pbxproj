@@ -13,6 +13,7 @@
 		CA0BDF3524A263D90074C685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA0BDF3424A263D90074C685 /* Assets.xcassets */; };
 		CA0BDF3824A263D90074C685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */; };
 		CA5056BA24AA526A00C52A57 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5056B924AA526A00C52A57 /* ListDetailViewController.swift */; };
+		CAE234AD24B75AEE00B018B7 /* TodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAE234AB24B75AEE00B018B7 /* TodoList.xcdatamodeld */; };
 		CAE5B51F24B3A432001D814D /* MoveToFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE5B51E24B3A432001D814D /* MoveToFolderViewController.swift */; };
 		CAF81F7524A67C7F000E9C36 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF81F7424A67C7F000E9C36 /* Date+Extension.swift */; };
 		CAF81F7D24A6A94E000E9C36 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF81F7C24A6A94D000E9C36 /* CategoryTableViewController.swift */; };
@@ -28,6 +29,7 @@
 		CA0BDF3724A263D90074C685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA0BDF3924A263D90074C685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA5056B924AA526A00C52A57 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		CAE234AC24B75AEE00B018B7 /* TodoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoList.xcdatamodel; sourceTree = "<group>"; };
 		CAE5B51E24B3A432001D814D /* MoveToFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToFolderViewController.swift; sourceTree = "<group>"; };
 		CAF81F7424A67C7F000E9C36 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CAF81F7C24A6A94D000E9C36 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				CA0BDF2D24A263D60074C685 /* SceneDelegate.swift */,
 				CA0BDF3424A263D90074C685 /* Assets.xcassets */,
 				CA0BDF3924A263D90074C685 /* Info.plist */,
+				CAE234AB24B75AEE00B018B7 /* TodoList.xcdatamodeld */,
 			);
 			path = "To-Do-Reminder";
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				CA0BDF2C24A263D60074C685 /* AppDelegate.swift in Sources */,
 				CA0BDF2E24A263D60074C685 /* SceneDelegate.swift in Sources */,
 				CA5056BA24AA526A00C52A57 /* ListDetailViewController.swift in Sources */,
+				CAE234AD24B75AEE00B018B7 /* TodoList.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +382,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CAE234AB24B75AEE00B018B7 /* TodoList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CAE234AC24B75AEE00B018B7 /* TodoList.xcdatamodel */,
+			);
+			currentVersion = CAE234AC24B75AEE00B018B7 /* TodoList.xcdatamodel */;
+			path = TodoList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CA0BDF2024A263D60074C685 /* Project object */;
 }
