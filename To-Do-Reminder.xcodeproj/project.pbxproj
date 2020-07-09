@@ -66,6 +66,7 @@
 		CA0BDF2A24A263D60074C685 /* To-Do-Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				CAE234AF24B75D9500B018B7 /* Moddel */,
 				CA5056BB24AFF1A000C52A57 /* UI */,
 				CAF81F7E24A6AF0A000E9C36 /* Controller */,
 				CAF81F7624A67C84000E9C36 /* Extension */,
@@ -73,7 +74,6 @@
 				CA0BDF2D24A263D60074C685 /* SceneDelegate.swift */,
 				CA0BDF3424A263D90074C685 /* Assets.xcassets */,
 				CA0BDF3924A263D90074C685 /* Info.plist */,
-				CAE234AB24B75AEE00B018B7 /* TodoList.xcdatamodeld */,
 			);
 			path = "To-Do-Reminder";
 			sourceTree = "<group>";
@@ -85,6 +85,14 @@
 				CA0BDF3624A263D90074C685 /* LaunchScreen.storyboard */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		CAE234AF24B75D9500B018B7 /* Moddel */ = {
+			isa = PBXGroup;
+			children = (
+				CAE234AB24B75AEE00B018B7 /* TodoList.xcdatamodeld */,
+			);
+			path = Moddel;
 			sourceTree = "<group>";
 		};
 		CAF81F7624A67C84000E9C36 /* Extension */ = {
